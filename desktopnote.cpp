@@ -67,7 +67,7 @@ desktopNote::desktopNote(LayerItem &i ,bool alpha,QWidget *parent) :
 
     QPushButton* ex = new QPushButton("↵",this);
     ex->setToolTip("退出程序");
-    connect(ex,SIGNAL(clicked(bool)),qApp,SLOT(quit()));
+    connect(ex,SIGNAL(clicked(bool)),this,SLOT(exitprog()));
     ex->setFont(f);
     ex->setFlat(true);
     ex->setFocusPolicy(Qt::NoFocus	);
@@ -286,11 +286,22 @@ void desktopNote::readpos()
 }
 
 void desktopNote::delnote(){
-
-    emit notedel(item);
+    int result;
+    result = QMessageBox::question(this,"删除便签？","删除后将无法恢复，是否删除？","否","是");
+    if (result!=0) {
+        emit notedel(item);
+    }
 }
 
 void desktopNote:: closeEvent(QCloseEvent* event){
     editcancel();
     event->ignore();
+}
+
+void desktopNote::exitprog(){
+    int result;
+    result = QMessageBox::question(this,"退出程序？","是否关闭Note-lite？","否","是");
+    if (result!=0) {
+        qApp->quit();
+    }
 }

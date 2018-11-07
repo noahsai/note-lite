@@ -32,6 +32,7 @@ private slots:
     void delnote();
     void editcancel();
     void initnote();
+    void exitprog();
 
 signals:
     void addnote();
