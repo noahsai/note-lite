@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>wei4.mp3</file>
+        <file>note-lite.png</file>
     </qresource>
 </RCC>

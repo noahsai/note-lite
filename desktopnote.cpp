@@ -8,6 +8,7 @@ desktopNote::desktopNote(LayerItem &i ,bool alpha,QWidget *parent) :
     ui(new Ui::desktopNote)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/note-lite.png"));
     setAttribute(Qt::WA_DeleteOnClose);
     this->setGeometry(QApplication::desktop()->width()-120,120,200,250);
     setWindowFlags(Qt::FramelessWindowHint|Qt::Tool);//去边框，不在任务栏显示

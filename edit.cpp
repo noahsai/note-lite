@@ -6,6 +6,7 @@ editnote::editnote(QWidget *parent) :
     ui(new Ui::edit)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/note-lite.png"));
     calendar = NULL;
     mouseclick = false;
     this->setMinimumSize(50,50);//最小宽度50
