@@ -32,7 +32,7 @@ editnote::~editnote()
 
 void editnote::inititem()
 {
-    QString date = QDate::currentDate().toString("yyyy.MM.dd");
+    QString date = QDate::currentDate().toString("yyyy-MM-dd");
     item.date = date;
     //默认当天
     item.time=QTime::currentTime().toString("h:m:s");
@@ -67,7 +67,7 @@ void editnote::setdata(LayerItem &value)
     //======
     if(value.date.isEmpty())
     {
-        QString date = QDate::currentDate().toString("yyyy.MM.dd");
+        QString date = QDate::currentDate().toString("yyyy-MM-dd");
         item.date = date;
     }
     ui->date ->setText( item.date);

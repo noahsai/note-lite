@@ -82,7 +82,7 @@ bool notelite::savelist(){
 void notelite::mkdesknote( LayerItem* i){
     LayerItem *item = i;
     if(item->id.isEmpty()) {
-        item->id = QDateTime().currentDateTime().toString("yyyy.MM.dd HH:mm:ss:zzz");
+        item->id = QDateTime().currentDateTime().toString("yyyy-MM-dd HH:mm:ss:zzz");
         qDebug()<<"id:"<<item->id;
     }
     qDebug()<<"add item:"<<item->id;
@@ -228,10 +228,10 @@ void notelite::updatetasklist(){
     tasklist.clear();
     for(int i=0;i<notelist.count();i++)
     {
-        //out<<(*(notelist[i]));
+        qDebug()<<"updatetasklist-test:"<<notelist[i]->date<<notelist[i]->time;
         QDate d;
         QDate today;
-        d = d.fromString(notelist[i]->date , "yyyy.MM.dd");
+        d = d.fromString(notelist[i]->date , "yyyy-MM-dd");
         today = today.currentDate();
         if(today == d && notelist[i]->isenable) tasklist.append(notelist[i]);
     }
